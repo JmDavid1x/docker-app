@@ -1,15 +1,16 @@
-# 🐳 Docker App — Node.js REST API
+# Docker App — Node.js REST API
 
-Hands-on DevOps project showcasing Docker containerization of a Node.js + MongoDB REST API with Nginx as a reverse proxy, managed through Docker Compose.
+Hands-on DevOps project showcasing Docker containerization of a Node.js + MongoDB
+REST API with Nginx as a reverse proxy, managed through Docker Compose.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Node.js + Express** — REST API
-- **MongoDB** — Database
-- **Nginx** — Reverse proxy
-- **Docker + Docker Compose** — Containerization
+- Node.js + Express — REST API
+- MongoDB — Database
+- Nginx — Reverse proxy
+- Docker + Docker Compose — Containerization
 
-## 📁 Project Structure
+## Project Structure
 ```
 docker-app/
 ├── app/
@@ -23,7 +24,7 @@ docker-app/
 └── README.md
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Docker Desktop installed
@@ -34,7 +35,12 @@ docker-app/
 docker compose up --build
 ```
 
-## 📌 API Endpoints
+### Stop the project
+```bash
+docker compose down
+```
+
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -42,12 +48,30 @@ docker compose up --build
 | GET | /items | Get all items |
 | POST | /items | Create a new item |
 
-## 📅 Progress Log
+## How it works
+
+The request flow goes through three services:
+
+1. Nginx listens on port 80 and acts as a reverse proxy
+2. Node.js processes the request on port 3000
+3. MongoDB stores and retrieves the data
+
+All three services are orchestrated by Docker Compose and communicate
+through an internal Docker network.
+
+## Progress Log
 
 ### Day 1 — Base API
 - Project structure created
 - Express API with MongoDB connection
-- Basic CRUD endpoints
+- Basic CRUD endpoints implemented
 
-## 👤 Author
-**JmDavid1x** — [GitHub](https://github.com/JmDavid1x)
+### Day 2 — Dockerization
+- Dockerfile created for Node.js app using node:18-alpine
+- Docker Compose configured to orchestrate 3 services: Node.js, MongoDB and Nginx
+- Nginx configured as reverse proxy with security best practices (server_tokens off)
+- Successfully ran all 3 containers with a single command: docker compose up --build
+- API tested and verified at http://localhost/health
+
+## Author
+Jose David Mayor Lopez — [GitHub](https://github.com/JmDavid1x)
