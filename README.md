@@ -73,6 +73,13 @@ through an internal Docker network.
 - Successfully ran all 3 containers with a single command: docker compose up --build
 - API tested and verified at http://localhost/health
 
+### Day 3 — Environment Variables
+- Created `.env` file to manage sensitive configuration
+- Updated `docker-compose.yml` to read variables from `.env` file
+- Updated `index.js` to use environment variables
+- `.env` file excluded from Git for security reasons
+- API now returns current environment in `/health` endpoint
+
 ### Day 4 — Environment Variables
 - Created `.env` file for secure configuration management
 - Added `.env.example` as a template
@@ -80,6 +87,11 @@ through an internal Docker network.
 - Updated `index.js` to use environment variables (`PORT`, `NODE_ENV`, `MONGO_URI`)
 - `.env` file excluded from Git for security reasons
 - API now returns current environment in `/health` endpoint
+
+### Day 5 — Documentation
+- Full project documentation in `README.md`
+- Documented tech stack, API endpoints, structure, and startup instructions
+- Added completed progress log for days 1 through 5
 
 ## Author
 Jose David Mayor Lopez — [GitHub](https://github.com/JmDavid1x)
